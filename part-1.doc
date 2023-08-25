@@ -1,0 +1,27 @@
+Insert results for the tinyArray 
+insert 14.875 μs
+Insert results for the smallArray 
+insert 5.333 μs
+Insert results for the mediumArray 
+insert 75.459 μs
+Insert results for the largeArray 
+insert 5.573667 ms
+Insert results for the extraLargeArray 
+insert 700.068333 ms
+--------------------------------------
+Append results for the tinyArray 
+append 10.25 μs
+Append results for the smallArray 
+append 3.583 μs
+Append results for the mediumArray 
+append 24.334 μs
+Append results for the largeArray 
+append 219.209 μs
+Append results for the extraLargeArray 
+append 3.580209 ms
+
+((((((((((((((((((((((((((((((((Explanation))))))))))))))))))))))))))))))))
+
+Pattern and Scalability Analysis:                                           The timing results show that as the size of the array increases, the execution time of both functions also increases. However, the increase in execution time is more significant for the "doublerInsert" function compared to the "doublerAppend" function. This indicates that the "doublerAppend" function scales better than the "doublerInsert" function. As the array size grows, "doublerInsert" takes significantly more time due to the shifting of elements during unshift operations, while "doublerAppend" performs relatively better due to its append operations.
+Reasoning for Slower Function:                                              The slower performance of the "doublerInsert" function can be attributed to the underlying mechanics of array operations. When using the unshift method in JavaScript, which is used in the "doublerInsert" function, all existing elements need to be shifted to accommodate the new element at the beginning of the array. This shifting operation becomes increasingly time-consuming as the size of the array grows. In contrast, the "doublerAppend" function uses the push method, which adds elements to the end of the array and does not require shifting.                                                             
+In summary, the "doublerInsert" function's slower performance is a result of the shifting of elements during unshift operations, which becomes inefficient as the array size increases. The "doublerAppend" function's use of push operations for appending elements to the end of the array contributes to its better scalability.
